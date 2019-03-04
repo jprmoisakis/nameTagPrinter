@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from geradorCrachas.forms import MyForm
 import os 
+from pdfrw import PdfReader, PdfWriter, PageMerge, PdfDict
+import fitz
 
 # Create your views here.
 
@@ -23,6 +25,20 @@ def index(request):
                 
             print(dadosFormatados)            
         
+
+            #Manipulação do pdf
+
+            adicionaLogo()
+
+            adicionaMarcaDagua()
+
+
+
+
+
+
+
+
             return render(request,'geradorCrachas/home.html',{'form' :dadosFormExcel})
 
     else:
@@ -35,3 +51,28 @@ def pdfPreview(request):
     #print (aa)
     image_data = open("newfile.pdf", "rb").read()
     return HttpResponse(image_data, content_type="application/pdf")
+
+
+
+def adicionaLogo():
+    doc= fitz.open("teste.pdf")
+    page = doc[0]                         # choose some page
+    rect = fitz.Rect(170, 210, 400, 300)       # where we want to put the image
+    pix = fitz.Pixmap("resources/pngs/Untitled.png")        # any supported image file
+    page.insertImage(rect, pixmap = pix, overlay = True)   # insert image
+    doc.saveIncr() 
+
+
+def adicionaMarcaDagua():
+    ipdf = PdfReader('sample.pdf')
+    wpdf = PdfReader('teste.pdf')
+
+    wmark = PageMerge().add(wpdf.pages[0])[0]
+    writer = PdfWriter()
+    blank = wpdf.pages[0]
+    PageMerge(ipdf.pages[0]).add(wmark).render()
+
+    for i in range(10):
+        writer.addpage(blank)
+
+    writer.write('newfile.pdf')
