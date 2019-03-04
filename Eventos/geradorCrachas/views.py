@@ -30,3 +30,8 @@ def index(request):
         return render(request,'geradorCrachas/home.html', {'form' :form})
 
 
+def pdfPreview(request):
+    #aa =os.getcwd 
+    #print (aa)
+    image_data = open("newfile.pdf", "rb").read()
+    return HttpResponse(image_data, content_type="application/pdf")
