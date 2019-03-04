@@ -4,7 +4,12 @@ Sistema faz a impressão de crachás de acordo com as informações repassadas d
 
 ## Configuração do ambiente
 
-@todo
+Para executar o projeto é necessario seguir os seguintes passos
+
+sudo apt install virtualenv
+virtualenv -p python3 venv
+pip install -r requirements.txt
+virtualenv -p python3 venv
 
 ### Pre-requisitos
 
