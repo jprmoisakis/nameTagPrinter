@@ -7,11 +7,21 @@ import fitz
 import shutil
 # Create your views here.
 
+def handle_uploaded_file(f):
+    with open('resources/pngs/logo.png', 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
+
+
 def index(request):
     if(request.method == 'POST'):
-        dadosFormExcel = MyForm(request.POST)    
+        dadosFormExcel = MyForm(request.POST,request.FILES)  
+  
         if dadosFormExcel.is_valid():
+            print("shurheuahiua")
+
             dadosStr = dadosFormExcel.cleaned_data['tabelaCracha']
+            handle_uploaded_file(request.FILES['logoInput'])
             dadosFormatados = parseExcel(dadosStr)
                 
             print(dadosFormatados)            
@@ -22,7 +32,6 @@ def index(request):
             adicionaLogo()
 
             adicionaMarcaDagua()
-
 
 
 
@@ -50,7 +59,7 @@ def adicionaLogo():
     doc= fitz.open("resources/pdfs/cracha.pdf")
     page = doc[0]                              # choose some page
     rect = fitz.Rect(170, 210, 400, 300)       # where we want to put the image
-    pix = fitz.Pixmap("resources/pngs/Untitled.png")       # any supported image file
+    pix = fitz.Pixmap("resources/pngs/logo.png")       # any supported image file
     page.insertImage(rect, pixmap = pix, overlay = True)   # insert image
     doc.saveIncr() 
 

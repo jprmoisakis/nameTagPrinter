@@ -12,9 +12,10 @@
   <body>
     <h1>Gerador de Crachás</h1>
     <div class="container">
-        <form method="POST" id ="submitform">
+        <form method="POST" id ="submitform" enctype="multipart/form-data">
             <div class="form-group">
                 {% csrf_token %}
+                {{form.logoInput}}
                 {{form.tabelaCracha}}
                 <button type="button submit" class="btn-primary">Submit</button>
             </div>
