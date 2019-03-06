@@ -18,7 +18,7 @@ virtualenv
 
 ## Configuração do ambiente
 
-Para executar o projeto é necessário seguir os seguintes passos:
+Para configurar o projeto é necessário seguir os seguintes passos:
 ```console
 
 $ sudo apt install virtualenv
@@ -27,6 +27,17 @@ $ source venv/bin/activate
 $ pip install -r requirements.txt
 
 ```
+
+### Execução
+
+```console
+
+$ cd Eventos
+$ python manage.py runserver
+
+```
+Após a execução desses passos o sistema deve estar disponivel na url http://127.0.0.1:8000/geradorCrachas/
+
 
 ### Dificuldades
 
