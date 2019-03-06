@@ -19,7 +19,7 @@ def index(request):
             tags = dadosLinha[0].split('\t')
             dadosFormatados = util.parseExcel(dadosLinha,tags)
                 
-            print(dadosFormatados)            
+            #print(dadosFormatados)            
         
             #Manipulação do pdf
 
