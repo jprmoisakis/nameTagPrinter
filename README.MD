@@ -51,4 +51,5 @@ Com as bibliotecas que utilizei não seria dificil personalizar o texto com dife
 Exemplo a ser colocado no campo layout do crachá:
 
 Nome: {{Nome}}
+
 País: {{País}}
