@@ -6,15 +6,20 @@ Sistema faz a impressão de crachás de acordo com as informações repassadas d
 
 Para executar o projeto é necessario seguir os seguintes passos
 
-sudo apt install virtualenv
-virtualenv -p python3 venv
-pip install -r requirements.txt
-virtualenv -p python3 venv
+$ sudo apt install virtualenv
+$ virtualenv -p python3 venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt
+
 
 ### Pre-requisitos
 
 ```
 python3
+```
+
+```
+pip
 ```
 
 ```
