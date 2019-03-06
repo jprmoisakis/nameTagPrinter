@@ -2,16 +2,6 @@
 
 Sistema faz a impressão de crachás de acordo com as informações repassadas de uma planilha excel
 
-## Configuração do ambiente
-
-Para executar o projeto é necessario seguir os seguintes passos
-
-$ sudo apt install virtualenv
-$ virtualenv -p python3 venv
-$ source venv/bin/activate
-$ pip install -r requirements.txt
-
-
 ### Pre-requisitos
 
 ```
@@ -26,6 +16,28 @@ pip
 virtualenv
 ```
 
-### Execução
+## Configuração do ambiente
 
-@todo
+Para executar o projeto é necessário seguir os seguintes passos:
+```console
+
+$ sudo apt install virtualenv
+$ virtualenv -p python3 venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt
+
+```
+
+### Dificuldades
+
+Inicialmente, a idéia era manipular os arquivos psd, a fim de criar layers de texto e fazer todo o
+layout do cracha dessa forma, porém o suporte para esse tipo de arquivo propietário é bem precario 
+em Python, dessa maneira optei por ter um Background fixo dos crachas com o logo do evento personalizável.
+
+Com as bibliotecas que utilizei não seria dificil personalizar o texto com diferentes fontes, tamanhos e adicionar as opções de negrito e itálico, assim como um layout mais bonito para o frontend porém não fiz a tempo da entrega.
+
+
+Exemplo a ser colocado no campo layout do crachá:
+
+Nome: {{Nome}}
+País: {{País}}

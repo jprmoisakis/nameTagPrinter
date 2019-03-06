@@ -13,13 +13,26 @@
     <h1>Gerador de Crachás</h1>
     <div class="container">
         <form method="POST" id ="submitform" enctype="multipart/form-data">
+          {% csrf_token %}
             <div class="form-group">
-                {% csrf_token %}
+                <label for="inputLogo">Insira o Logo do Evento</label>
                 {{form.logoInput}}
+            </div">
+            <div class="form-group">
+              
+              <label for="inputTexto" >Insira o layout do crachá</label>
+                <br>
                 {{form.textoCracha}}
-                {{form.tabelaCracha}}
-                <button type="button submit" class="btn-primary">Submit</button>
+            </pre>
+
             </div>
+            <div class="fom-group">
+                <label for="inputTextoExcel" >Insira os dados da tabela excel</label>
+
+                {{form.tabelaCracha}}
+            </div>
+            <button type="button submit" class="btn-primary">Submit</button>
+
         </form>
     </div>
     
